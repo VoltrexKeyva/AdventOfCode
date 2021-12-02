@@ -1,6 +1,9 @@
+#ifdef __GNUC__
+#pragma GCC diagnostic ignored "-Wunused-result"
+#endif
+
 #include <stdint.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <stdio.h>
 
 char * read_file(const char * filename) {
