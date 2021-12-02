@@ -1,6 +1,5 @@
 #include "parser.h"
 #include <string.h>
-#include <stdlib.h>
 
 static uint8_t char_to_num(const char * ptr) {
     return ptr[0] - 48;
