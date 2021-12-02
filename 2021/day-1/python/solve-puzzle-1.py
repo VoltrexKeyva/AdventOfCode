@@ -1,22 +1,13 @@
 with open('../input.txt', 'r') as handle:
     text = handle.read().splitlines()
-    times_increased = 0
-    i = 0
     text_len = len(text)
-    first = True
-    previous = None
+    times_increased = 0
+    i = 1
     
     while i < text_len:
-        if first:
-            first = False
-            previous = int(text[i])
-            continue
-        
-        num = int(text[i])
-        if num > previous:
+        if int(text[i]) > int(text[i - 1]):
             times_increased += 1
-
-        previous = num
+        
         i += 1
     
     print(times_increased)
