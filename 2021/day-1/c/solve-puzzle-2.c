@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -11,9 +12,7 @@ int main(void) {
     array_t nums = new_array();
     
     nums->size = 3;
-    nums->data[0] = parsed->data[0];
-    nums->data[1] = parsed->data[1];
-    nums->data[2] = parsed->data[2];
+    memcpy(nums->data, parsed->data, 3 * sizeof(uint16_t));
     
     uint16_t previous_sum = parsed->data[0] + parsed->data[1] + parsed->data[2];
     uint16_t times_increased = 0;
