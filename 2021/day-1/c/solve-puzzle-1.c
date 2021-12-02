@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "arrayutil.h"
-#include "ioutil.h"
+#include "../../misc/ioutil.h"
+#include "../../misc/arrayutil.h"
 
 int main(void) {
     char * data = read_file("../input.txt");
