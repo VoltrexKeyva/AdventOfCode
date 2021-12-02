@@ -12,5 +12,7 @@ typedef struct {
 } _array_t, * array_t;
 
 array_t parse_array(char *);
+array_t new_array(void);
+void append_array(array_t, const uint16_t);
 
 #endif
