@@ -6,6 +6,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#if   _INTEGER_BIT_TYPE == 16
+typedef uint16_t num_t;
+#elif _INTEGER_BIT_TYPE == 32
+typedef uint32_t num_t;
+#endif
+
 char * read_file(const char * filename) {
     FILE * fp = fopen(filename, "r");
     if (fp == NULL)
@@ -13,7 +19,7 @@ char * read_file(const char * filename) {
     
     fseek(fp, 0, SEEK_END);
     
-    const uint16_t file_size = (uint16_t)ftell(fp);
+    const num_t file_size = (num_t)ftell(fp);
     fseek(fp, 0, SEEK_SET);
     
     char * data = malloc(file_size);
