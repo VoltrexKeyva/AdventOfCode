@@ -5,13 +5,7 @@ const len = input.length;
 
 let timesIncreased = 0;
 
-for (let i = 0, first = true, previous = null; i < len; i++) {
-  if (first) {
-    first = false;
-    previous = Number(input[i]);
-    continue;
-  }
-
+for (let i = 1, previous = Number(input[0]); i < len; i++) {
   const num = Number(input[i]);
 
   if (num > previous) timesIncreased++;
