@@ -5,7 +5,11 @@ static uint8_t char_to_num(const char * ptr) {
     return ptr[0] - 48;
 }
 
-void parse_string(char * str, uint32_t * horizontal_pos, uint32_t * depth, uint32_t * aim) {
+void parse_string(char * str, uint32_t * horizontal_pos, uint32_t * depth
+#ifdef HAS_AIM
+, uint32_t * aim
+#endif
+) {
     char * nl_token;
 
     while ((nl_token = strtok_r(str, "\n", &str))) {
@@ -14,19 +18,21 @@ void parse_string(char * str, uint32_t * horizontal_pos, uint32_t * depth, uint3
         
         if (!strcmp(instruction, "forward")) {
             *horizontal_pos += arg;
-            
-            if (aim != NULL)
-                *depth += (*aim) * arg;
-        } else if (!strcmp(instruction, "up")) {
-            if (aim != NULL)
-                *aim -= arg;
-            else
-                *depth -= arg;
+#ifdef HAS_AIM
+            *depth += (*aim) * arg;
+#endif
+            } else if (!strcmp(instruction, "up")) {
+#ifdef HAS_AIM
+            *aim -= arg;
+#else
+            *depth -= arg;
+#endif
         } else if (!strcmp(instruction, "down")) {
-            if (aim != NULL)
-                *aim += arg;
-            else
-                *depth += arg;
+#ifdef HAS_AIM
+            *aim += arg;
+#else
+            *depth += arg;
+#endif
         }
     }
 }
