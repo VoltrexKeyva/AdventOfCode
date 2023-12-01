@@ -31,8 +31,8 @@ for (const line of input) {
     line.from.x !== line.to.x && line.from.y === line.to.y
       ? { x: 1, y: 0 }
       : line.from.x === line.to.x && line.from.y !== line.to.y
-      ? { x: 0, y: 1 }
-      : null;
+        ? { x: 0, y: 1 }
+        : null;
   const keys = Array.from(
     Array(
       Math.max(

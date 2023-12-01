@@ -3,9 +3,10 @@
 
 #include <stdint.h>
 
-void parse_string(char * str, uint32_t * horizontal_pos, uint32_t * depth
+void parse_string(char* str, uint32_t* horizontal_pos, uint32_t* depth
 #ifdef HAS_AIM
-, uint32_t * aim
+                  ,
+                  uint32_t* aim
 #endif
 );
 

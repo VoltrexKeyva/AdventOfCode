@@ -6,7 +6,6 @@ const len: number = input.length;
 let timesIncreased: number = 0;
 
 for (let i: number = 1; i < len; i++)
-  if (Number(input[i]) > Number(input[i - 1]))
-    timesIncreased++;
+  if (Number(input[i]) > Number(input[i - 1])) timesIncreased++;
 
 console.log(timesIncreased);
