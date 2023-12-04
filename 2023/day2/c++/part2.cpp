@@ -18,10 +18,10 @@ int main() {
   size_t total = 0;
   std::string lexeme{};
   while (std::getline(input, line)) {
-    const size_t semi_colon_idx = line.find(':');
+    const size_t colon_idx = line.find(':');
     size_t num = 0;
 
-    for (size_t i = semi_colon_idx + 2; i < line.size(); i++) {
+    for (size_t i = colon_idx + 2; i < line.size(); i++) {
       const char c = line[i];
 
       if (std::isdigit(c)) {

@@ -20,14 +20,14 @@ int main() {
   size_t possible_games = 0;
   std::string lexeme{};
   while (std::getline(input, line)) {
-    const size_t semi_colon_idx = line.find(':');
+    const size_t colon_idx = line.find(':');
     size_t red = 0;
     size_t green = 0;
     size_t blue = 0;
     size_t num = 0;
     bool impossible = false;
 
-    for (size_t i = semi_colon_idx + 2; i < line.size(); i++) {
+    for (size_t i = colon_idx + 2; i < line.size(); i++) {
       const char c = line[i];
 
       if (std::isdigit(c)) {
@@ -68,7 +68,7 @@ int main() {
 
     if (!impossible)
       possible_games += std::stoull(line.substr(
-          AFTER_GAME_IDENTIFIER, semi_colon_idx - AFTER_GAME_IDENTIFIER));
+          AFTER_GAME_IDENTIFIER, colon_idx - AFTER_GAME_IDENTIFIER));
   }
 
   std::cout << possible_games << std::endl;
